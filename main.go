@@ -12,15 +12,17 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-
 	wordsString := string(wordsBytes)
-
 	words := strings.Split(wordsString, ", ")
 	words[len(words)-1] = words[len(words)-1][:len(words[len(words)-1])-1] // umm, this just removes the whitespace at the end ¯\_(ツ)_/¯
-	realWord := "cycle"
 
-	lastResult := getWordResult(realWord, "crane")
-	fmt.Println(lastResult)
+	realWord := "great"
+	testedLetters := make(TestedLetters)
 
-	getValidWords(lastResult, words)
+	testedLetters.addWord(realWord, "crane")
+	testedLetters.addWord(realWord, "treat")
+	validWords := testedLetters.getValidWords(words)
+
+	fmt.Println(validWords)
+	fmt.Println(testedLetters)
 }
