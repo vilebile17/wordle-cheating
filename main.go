@@ -48,4 +48,6 @@ func main() {
 		wordToTry = validWords[i]
 		fmt.Printf("Try the word '%v'\n", wordToTry)
 	}
+
+	fmt.Println(testedLetters)
 }
