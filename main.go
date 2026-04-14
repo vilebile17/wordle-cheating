@@ -14,14 +14,13 @@ func main() {
 	}
 	wordsString := string(wordsBytes)
 	words := strings.Split(wordsString, ", ")
-	words[len(words)-1] = words[len(words)-1][:len(words[len(words)-1])-1] // umm, this just removes the whitespace at the end ¯\_(ツ)_/¯
+	words[len(words)-1], _ = strings.CutSuffix(words[len(words)-1], " ")
 
-	realWord := "great"
+	realWord := "cycle"
 	testedLetters := make(TestedLetters)
 
-	testedLetters.addWord(realWord, "crane")
-	testedLetters.addWord(realWord, "treat")
-	validWords := testedLetters.getValidWords(words)
+	testedLetters.AddWord(realWord, "crazy")
+	validWords := testedLetters.GetValidWords(words)
 
 	fmt.Println(validWords)
 	fmt.Println(testedLetters)
