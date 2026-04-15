@@ -22,8 +22,12 @@ func (tl TestedLetters) ManuallyAddWord(word, letterStates string) {
 			}
 		case "0":
 			temp := tl[letter]
-			temp.result = wrong
-			temp.isNotFoundAt = []int{0, 1, 2, 3, 4}
+			if tl[letter].result != wrong {
+				temp.isNotFoundAt = append(temp.isNotFoundAt, i)
+			} else {
+				temp.result = wrong
+				temp.isNotFoundAt = []int{0, 1, 2, 3, 4}
+			}
 			tl[letter] = temp
 		}
 	}
